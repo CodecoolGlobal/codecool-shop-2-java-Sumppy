@@ -1,8 +1,11 @@
 const modal = document.getElementById('modal');
-const addToCartLink = document.getElementById('add-to-cart');
+const addToCartLink = document.querySelectorAll('#add-to-cart');
 const X = document.getElementsByClassName('close')[0];
 
-addToCartLink.addEventListener('click', handleClickOpen)
+for (const link of addToCartLink) {
+    link.addEventListener('click', handleClickOpen)
+}
+
 X.addEventListener('click', handleClickClose)
 
 function handleClickOpen(){
