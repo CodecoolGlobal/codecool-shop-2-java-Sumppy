@@ -1,3 +1,5 @@
+import {handleClickOpen} from "./modal.js";
+
 export function clearInnerHTML(htmlElement){
     htmlElement.innerHTML = "";
 }
@@ -24,4 +26,11 @@ export function fillHtmlElementWithProducts(htmlElement, data){
         </div>
         `
     }).join("");
+}
+
+export function addEventListenerToAddToCartButtons(){
+    const buttons = document.querySelectorAll('#add-to-cart');
+    for(const button of buttons){
+        button.addEventListener('click', handleClickOpen)
+    }
 }

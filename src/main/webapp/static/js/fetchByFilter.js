@@ -1,4 +1,4 @@
-import {clearInnerHTML, fillHtmlElementWithProducts} from "./util.js";
+import {clearInnerHTML, fillHtmlElementWithProducts, addEventListenerToAddToCartButtons} from "./util.js";
 
 const filterLinks = document.getElementsByClassName("category-link");
 for (const link of filterLinks){
@@ -17,5 +17,5 @@ function displayResult(data){
     const divToFill = document.getElementById('products');
     clearInnerHTML(divToFill);
     fillHtmlElementWithProducts(divToFill, data);
-
+    addEventListenerToAddToCartButtons();
 }
