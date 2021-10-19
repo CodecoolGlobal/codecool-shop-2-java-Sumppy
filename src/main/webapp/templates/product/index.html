@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8" />
     <meta name="author" content="Codecool" />
@@ -26,6 +26,9 @@
     <!-- End of Bootstrap components -->
 
     <link rel="stylesheet" type="text/css" href="/static/css/custom.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/button.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/dropdownDiv.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/link.css" />
 </head>
 
 <body>
@@ -36,7 +39,12 @@
 
 <div class="container">
     <div class="card">
-        <strong th:text="${category.name}">Category Title</strong>
+        <div class="dropdown">
+            <button class="dropdown-button">Categories</button>
+                <div class="dropdown-content"  th:each="cat,iterStat: ${categories}">
+                    <a href="#" th:text="${cat.name}" class="category-link"></a>
+                </div>
+        </div>
     </div>
 
     <div id="products" class="row">
