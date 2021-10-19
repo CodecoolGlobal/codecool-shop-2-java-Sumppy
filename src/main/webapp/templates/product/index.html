@@ -26,6 +26,9 @@
     <!-- End of Bootstrap components -->
 
     <link rel="stylesheet" type="text/css" href="/static/css/custom.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/button.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/dropdownDiv.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/link.css" />
 </head>
 
 <body>
@@ -37,9 +40,9 @@
 <div class="container">
     <div class="card">
         <div class="dropdown">
-            <button th:text="${category.name}">Category Title</button>
+            <button class="dropdown-button">Categories</button>
                 <div class="dropdown-content"  th:each="cat,iterStat: ${categories}">
-                    <a href="#" th:text="{cat.name}" class="category-link"></a>
+                    <a href="#" th:text="${cat.name}" class="category-link"></a>
                 </div>
         </div>
     </div>
