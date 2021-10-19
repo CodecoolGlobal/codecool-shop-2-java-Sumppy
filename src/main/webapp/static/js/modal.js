@@ -8,7 +8,8 @@ addEventListenerToAddToCartButtons();
 
 X.addEventListener('click', handleClickClose)
 
-export function handleClickOpen(){
+export function handleClickOpen(event){
+    event.preventDefault()
     modal.style.display = "block";
 }
 
