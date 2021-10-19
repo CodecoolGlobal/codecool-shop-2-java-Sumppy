@@ -41,11 +41,17 @@
 </div>
 
 <div class="container">
-    <div class="card">
+    <div class="dropdowns">
         <div class="dropdown">
             <button class="dropdown-button">Categories</button>
                 <div class="dropdown-content"  th:each="cat,iterStat: ${categories}">
                     <a href="#" th:text="${cat.name}" class="category-link"></a>
+                </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropdown-button">Supplier</button>
+                <div class="dropdown-content"  th:each="sup,iterStat: ${suppliers}">
+                    <a href="#" th:text="${sup.name}" class="category-link"></a>
                 </div>
         </div>
     </div>

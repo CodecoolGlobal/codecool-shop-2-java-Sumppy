@@ -5,3 +5,8 @@
     font-size: 16px;
     border: none;
 }
+
+.dropdowns{
+    display: flex;
+    flex-direction: row;
+}
