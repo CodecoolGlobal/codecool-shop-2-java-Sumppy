@@ -1,14 +1,14 @@
+import {addEventListenerToAddToCartButtons} from "./util.js";
+
 const modal = document.getElementById('modal');
-const addToCartLink = document.querySelectorAll('#add-to-cart');
 const X = document.getElementsByClassName('close')[0];
 
-for (const link of addToCartLink) {
-    link.addEventListener('click', handleClickOpen)
-}
+
+addEventListenerToAddToCartButtons();
 
 X.addEventListener('click', handleClickClose)
 
-function handleClickOpen(){
+export function handleClickOpen(){
     modal.style.display = "block";
 }
 
