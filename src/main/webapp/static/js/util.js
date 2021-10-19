@@ -17,7 +17,7 @@ export function fillHtmlElementWithProducts(htmlElement, data){
                         <p class="lead">${d.defaultPrice} ${d.defaultCurrency}</p>
                     </div>
                     <div class="card-text">
-                        <a class="btn btn-success" href="#">Add to cart</a>
+                        <a id="add-to-cart" class="btn btn-success" href="#">Add to cart</a>
                     </div>
                 </div>
             </div>
