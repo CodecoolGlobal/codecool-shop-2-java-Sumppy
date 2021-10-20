@@ -1,6 +1,7 @@
 import {handleClickOpen} from "./modal.js";
 import {closeSidebar, openSidebar} from "./sidebar.js";
 import {increaseAmount, decreaseAmount} from "./modalAmount.js";
+import {postFetch} from "./fetchCartItems.js";
 
 export function clearInnerHTML(htmlElement){
     htmlElement.innerHTML = "";
@@ -56,4 +57,16 @@ export function addEventListenerToAmountLinks(id){
 
     increase.addEventListener('click', () => increaseAmount(id));
     decrease.addEventListener('click', () => decreaseAmount(id));
+}
+
+export function addEventListenerToAddToCart(id){
+    let data = collectCartContent(id);
+    document.querySelector('#buy').addEventListener('click', ()=>postFetch(data))
+}
+
+function collectCartContent(id){
+    return {
+        'quantity': parseInt(document.querySelector('.quantity-amount').innerHTML),
+        'id': parseInt(id)
+    }
 }
