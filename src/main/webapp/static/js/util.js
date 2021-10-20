@@ -60,8 +60,8 @@ export function addEventListenerToAmountLinks(id){
 }
 
 export function addEventListenerToAddToCart(id){
-    let data = collectCartContent(id);
-    document.querySelector('#buy').addEventListener('click', ()=>postFetch(data))
+    const button = document.getElementById('buy');
+    button.addEventListener('click', ()=>postFetch(collectCartContent(id)))
 }
 
 function collectCartContent(id){
