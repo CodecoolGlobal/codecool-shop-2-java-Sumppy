@@ -111,8 +111,7 @@
     flex-direction: column;
 }
 
-.modal-footer{
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
+.button-container{
+    display: flex;
+    align-items: center;
 }

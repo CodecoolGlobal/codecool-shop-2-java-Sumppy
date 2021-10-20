@@ -18,9 +18,9 @@ export function buildModal(id){
             <div class="price-container">
                 <p class="price-amount">100</p>
             </div>
-        </div>
-        <div class="modal-footer">
-            <h3>Modal Footer</h3>
+            <div class="button-container">
+                <a id="buy" class="btn btn-success" href="#">Add to cart</a>
+            </div>
         </div>
     </div>`
 }
