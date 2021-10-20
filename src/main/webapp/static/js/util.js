@@ -1,3 +1,5 @@
+import {handleClickOpen} from "./modal.js";
+
 export function clearInnerHTML(htmlElement){
     htmlElement.innerHTML = "";
 }
@@ -17,11 +19,18 @@ export function fillHtmlElementWithProducts(htmlElement, data){
                         <p class="lead">${d.defaultPrice} ${d.defaultCurrency}</p>
                     </div>
                     <div class="card-text">
-                        <a class="btn btn-success" href="#">Add to cart</a>
+                        <a id="add-to-cart" class="btn btn-success" href="#">Add to cart</a>
                     </div>
                 </div>
             </div>
         </div>
         `
     }).join("");
+}
+
+export function addEventListenerToAddToCartButtons(){
+    const buttons = document.querySelectorAll('#add-to-cart');
+    for(const button of buttons){
+        button.addEventListener('click', handleClickOpen)
+    }
 }
