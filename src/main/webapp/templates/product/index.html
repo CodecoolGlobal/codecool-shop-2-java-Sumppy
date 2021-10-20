@@ -78,8 +78,8 @@
                     <div class="card-text">
                         <a th:attr="data-productId=${prod.id}" id="add-to-cart" class="btn btn-success" href="#">Add to cart</a>
                     </div>
+                    <div th:id="${prod.id}" class="modal"></div>
                 </div>
-                <div th:id="${prod.id}" class="modal"></div>
             </div>
         </div>
     </div>
