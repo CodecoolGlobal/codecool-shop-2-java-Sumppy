@@ -1,4 +1,5 @@
 import {handleClickOpen} from "./modal.js";
+import {closeSidebar, openSidebar} from "./sidebar.js";
 
 export function clearInnerHTML(htmlElement){
     htmlElement.innerHTML = "";
@@ -41,4 +42,9 @@ export function deleteModals(){
         modal.style.display='none';
         clearInnerHTML(modal);
     }
+}
+
+export function addEventListenerToSidebarElements(){
+    document.querySelector('.closebtn').addEventListener('click', closeSidebar);
+    document.querySelector('.sidebar-button').addEventListener('click', openSidebar);
 }
