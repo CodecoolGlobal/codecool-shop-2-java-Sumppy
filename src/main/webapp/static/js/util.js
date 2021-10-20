@@ -55,13 +55,13 @@ export function addEventListenerToAmountLinks(id){
     const increase = document.querySelector(".increase-quantity");
     const decrease = document.querySelector(".decrease-quantity");
 
-    increase.addEventListener('click', () => increaseAmount(id));
-    decrease.addEventListener('click', () => decreaseAmount(id));
+    increase.addEventListener('click', () => increaseAmount(id, event));
+    decrease.addEventListener('click', () => decreaseAmount(id, event));
 }
 
 export function addEventListenerToAddToCart(id){
     const button = document.getElementById('buy');
-    button.addEventListener('click', ()=>postFetch(collectCartContent(id)))
+    button.addEventListener('click', ()=>postFetch(collectCartContent(id), event))
 }
 
 function collectCartContent(id){

@@ -1,4 +1,5 @@
-export function increaseAmount(id){
+export function increaseAmount(id, event){
+    event.preventDefault();
     const currentAmount = document.querySelector(".quantity-amount");
     const currentAmountValue = parseInt(currentAmount.innerHTML);
     const price = parseInt(document.getElementById(id).dataset.price);
@@ -7,7 +8,8 @@ export function increaseAmount(id){
     changeTotalPrice(currentAmountValue + 1, price);
 }
 
-export function decreaseAmount(id){
+export function decreaseAmount(id, event){
+    event.preventDefault();
     const currentAmount = document.querySelector(".quantity-amount");
     const currentAmountValue = parseInt(currentAmount.innerHTML);
     const price = parseInt(document.getElementById(id).dataset.price);
