@@ -20,8 +20,12 @@ public class Cart {
     }
 
     public void updateProduct(Product product, int newQuantity) {
-        cart.put(product, newQuantity);
-        calculateCartValue();
+        if (newQuantity==0) {
+            deleteProduct(product);
+        } else {
+            cart.put(product, newQuantity);
+            calculateCartValue();
+        }
     }
 
     public Map<Product, Integer> getCart() {
@@ -36,5 +40,9 @@ public class Cart {
 
     public BigDecimal getValueOfCart() {
         return valueOfCart;
+    }
+
+    public void deleteProduct(Product product) {
+        cart.remove(product);
     }
 }
