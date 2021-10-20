@@ -34,3 +34,10 @@ export function addEventListenerToAddToCartButtons(){
         button.addEventListener('click', handleClickOpen)
     }
 }
+
+export function deleteModals(){
+    for (const modal of document.getElementsByClassName('modal')) {
+        modal.style.display='none';
+        clearInnerHTML(modal);
+    }
+}

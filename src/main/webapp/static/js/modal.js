@@ -1,16 +1,21 @@
-import {addEventListenerToAddToCartButtons} from "./util.js";
+import {addEventListenerToAddToCartButtons, deleteModals} from "./util.js";
+import {buildModal} from "./modalBuilder.js";
 
-const modal = document.getElementById('modal');
-const X = document.getElementsByClassName('close')[0];
-
+let X;
+let modal;
 
 addEventListenerToAddToCartButtons();
 
-X.addEventListener('click', handleClickClose)
 
 export function handleClickOpen(event){
-    event.preventDefault()
+    event.preventDefault();
+    deleteModals();
+    let id = event.target.dataset.productid.toString()
+    buildModal(id);
+    X = document.getElementsByClassName('close')[0];
+    modal = document.getElementById(id)
     modal.style.display = "block";
+    X.addEventListener('click', handleClickClose)
 }
 
 function handleClickClose(){
