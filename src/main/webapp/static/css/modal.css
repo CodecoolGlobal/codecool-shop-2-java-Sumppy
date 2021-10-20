@@ -74,6 +74,12 @@
 .decrease-quantity{
     font-weight: bold;
     font-size: 200%;
+    color: black;
+}
+
+.decrease-quantity:hover{
+    color: #b88d5c;
+    text-decoration: none;
 }
 
 .product-quantity p{
@@ -85,6 +91,12 @@
 .increase-quantity{
     font-weight: bold;
     font-size: 200%;
+    color: black;
+}
+
+.increase-quantity:hover{
+    color: #b88d5c;
+    text-decoration: none;
 }
 
 .amount{
