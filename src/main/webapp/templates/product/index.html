@@ -76,28 +76,16 @@
                         <p class="lead" th:text="${prod.getPrice()}">100 USD</p>
                     </div>
                     <div class="card-text">
-                        <a id="add-to-cart" class="btn btn-success" href="#">Add to cart</a>
+                        <a th:attr="data-productId=${prod.id}" id="add-to-cart" class="btn btn-success" href="#">Add to cart</a>
                     </div>
                 </div>
+                <div th:id="${prod.id}" class="modal"></div>
             </div>
         </div>
     </div>
 
 </div>
-<div id="modal" class="modal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <span class="close">&times</span>
-            <!--<h2 class="modal-header-h2">Modal Header</h2>-->
-        </div>
-        <div class="modal-body">
-            <div class="product-quantity">
-                <p class="decrease-quantity">-</p><p class="quantity-amount">1</p><p class="increase-quantity">+</p>
-            </div>
-        </div>
-    </div>
 
-</div>
 
 <div th:replace="footer.html :: copy"></div>
 

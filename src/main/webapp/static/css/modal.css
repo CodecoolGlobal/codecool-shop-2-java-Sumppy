@@ -1,8 +1,11 @@
+.modal{
+    position: absolute;
+}
+
 .modal-content {
-    position: fixed;
     bottom: 0;
     background-color: #fefefe;
-    width: 100%;
+    width: 20%;
     -webkit-animation-name: slideIn;
     -webkit-animation-duration: 0.4s;
     animation-name: slideIn;
@@ -24,12 +27,19 @@
 }
 
 .modal-body {
-    padding: 2% 16%;
-}
-
-.product-quantity{
+    padding: 2% 2%;
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.product{
+}
+
+.product-quantity {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 .modal-header {
@@ -57,4 +67,20 @@
 @keyframes fadeIn {
     from {opacity: 0}
     to {opacity: 1}
+}
+
+.decrease-quantity{
+    font-weight: bold;
+    font-size: 200%;
+}
+
+.product-quantity p{
+    font-weight: bold;
+    font-size: 200%;
+    padding: 10% 10%;
+}
+
+.increase-quantity{
+    font-weight: bold;
+    font-size: 200%;
 }
