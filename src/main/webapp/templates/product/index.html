@@ -76,7 +76,7 @@
                         <p class="lead" th:text="${prod.getPrice()}">100 USD</p>
                     </div>
                     <div class="card-text">
-                        <a th:attr="data-productId=${prod.id}" id="add-to-cart" class="btn btn-success" href="#">Add to cart</a>
+                        <a th:attr="data-productId=${prod.id}" id="add-to-cart" class="btn btn-success" href="#">Buy</a>
                     </div>
                     <div th:id="${prod.id}" class="modal"></div>
                 </div>
@@ -87,7 +87,7 @@
 </div>
 
 
-<div th:replace="footer.html :: copy"></div>
+<!--<div th:replace="footer.html :: copy"></div>-->
 
 </body>
 </html>
