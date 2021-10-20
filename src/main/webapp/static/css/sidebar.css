@@ -1,0 +1,48 @@
+.sidebar{
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 0;
+    overflow-x: hidden;
+    background-color: #003792;
+    transition: 0.5s;
+}
+
+.category-link{
+    font-size: 150%;
+}
+
+.category-link:hover{
+    text-decoration: none;
+    color: white;
+}
+
+.main-container{
+    position: relative;
+    transition: margin-left 0.5s;
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+}
+
+.closebtn:hover{
+    text-decoration: none;
+    color: white;
+}
+
+.openbtn {
+    font-size: 24px;
+    cursor: pointer;
+    background-color: lightblue;
+}
+
+.dropdown-content{
+    height: fit-content;
+    width: fit-content;
+}
