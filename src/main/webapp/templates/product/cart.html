@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="product/index.html :: head" >
+    <link rel="stylesheet" type="text/css" href="/static/css/checkout.css" />
+</head>
+<body>
+<div class="checkout-total">
+    <h1 th:text="'Total cart value: '+${cartValue}+' $'"></h1>
+    <a href="http://127.0.0.1:8080/checkout" id="checkout"> Check Out</a>
+</div>
+<div class="cart-container">
+    <div class="cart">
+        <div class="col col-sm-12 col-md-6 col-lg-4" th:each="prod,iterStat : ${products}" id="product-card">
+            <div class="card">
+                <img class="image" src="http://placehold.it/400x250/000/fff" th:attr="src='/static/img/product_' + ${prod.key.id} + '.jpg'" alt="" height="400px"/>
+                <div class="card-header">
+                    <h4 class="card-title" th:text="${prod.key.name}">Product name</h4>
+                    <p class="card-text" th:text="${prod.key.description}">Product description... </p>
+                </div>
+                <div class="card-body">
+                    <div class="card-text">
+                        <p class="lead" th:text="${prod.key.price}">100 USD</p>
+                    </div>
+                    <div th:id="${prod.key.id}" class="modal"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

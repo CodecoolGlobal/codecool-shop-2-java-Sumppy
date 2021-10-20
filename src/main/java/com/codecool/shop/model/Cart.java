@@ -8,7 +8,7 @@ public class Cart {
 
     private Map<Product, Integer> cart = new HashMap<>();
     private static Cart instance = null;
-    private BigDecimal valueOfCart = null;
+    private BigDecimal valueOfCart = new BigDecimal(0);
 
     private Cart() {}
 
@@ -33,9 +33,11 @@ public class Cart {
     }
 
     private void calculateCartValue() {
+        BigDecimal valueSum = new BigDecimal(0);
         for (Product product : cart.keySet()) {
-            valueOfCart = valueOfCart.add(product.getDefaultPrice().multiply(new BigDecimal(cart.get(product))));
+            valueSum = valueSum.add(product.getDefaultPrice().multiply(new BigDecimal(cart.get(product))));
         }
+        valueOfCart = valueSum;
     }
 
     public BigDecimal getValueOfCart() {

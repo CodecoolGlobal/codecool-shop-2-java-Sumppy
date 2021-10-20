@@ -1,0 +1,14 @@
+.cart-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#checkout {
+    text-decoration: none;
+    background-color: #5f6367;
+
+}
+
+.checkout-total {
+    color: #3e8e41;
+}
