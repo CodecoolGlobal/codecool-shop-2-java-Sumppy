@@ -1,5 +1,6 @@
 import {handleClickOpen} from "./modal.js";
 import {closeSidebar, openSidebar} from "./sidebar.js";
+import {increaseAmount, decreaseAmount} from "./modalAmount.js";
 
 export function clearInnerHTML(htmlElement){
     htmlElement.innerHTML = "";
@@ -47,4 +48,12 @@ export function deleteModals(){
 export function addEventListenerToSidebarElements(){
     document.querySelector('.closebtn').addEventListener('click', closeSidebar);
     document.querySelector('.sidebar-button').addEventListener('click', openSidebar);
+}
+
+export function addEventListenerToAmountLinks(id){
+    const increase = document.querySelector(".increase-quantity");
+    const decrease = document.querySelector(".decrease-quantity");
+
+    increase.addEventListener('click', () => increaseAmount(id));
+    decrease.addEventListener('click', () => decreaseAmount(id));
 }
