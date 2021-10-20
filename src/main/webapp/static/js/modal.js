@@ -1,4 +1,4 @@
-import {addEventListenerToAddToCartButtons, deleteModals} from "./util.js";
+import {addEventListenerToAddToCartButtons, deleteModals, addEventListenerToAmountLinks, addEventListenerToAddToCart} from "./util.js";
 import {buildModal} from "./modalBuilder.js";
 
 let X;
@@ -15,7 +15,9 @@ export function handleClickOpen(event){
     X = document.getElementsByClassName('close')[0];
     modal = document.getElementById(id)
     modal.style.display = "block";
-    X.addEventListener('click', handleClickClose)
+    X.addEventListener('click', handleClickClose);
+    addEventListenerToAmountLinks(id);
+    addEventListenerToAddToCart(id);
 }
 
 function handleClickClose(){

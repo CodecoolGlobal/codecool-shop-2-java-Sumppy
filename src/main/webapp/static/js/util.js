@@ -1,4 +1,7 @@
 import {handleClickOpen} from "./modal.js";
+import {closeSidebar, openSidebar} from "./sidebar.js";
+import {increaseAmount, decreaseAmount} from "./modalAmount.js";
+import {postFetch} from "./fetchCartItems.js";
 
 export function clearInnerHTML(htmlElement){
     htmlElement.innerHTML = "";
@@ -40,5 +43,30 @@ export function deleteModals(){
     for (const modal of document.getElementsByClassName('modal')) {
         modal.style.display='none';
         clearInnerHTML(modal);
+    }
+}
+
+export function addEventListenerToSidebarElements(){
+    document.querySelector('.closebtn').addEventListener('click', closeSidebar);
+    document.querySelector('.sidebar-button').addEventListener('click', openSidebar);
+}
+
+export function addEventListenerToAmountLinks(id){
+    const increase = document.querySelector(".increase-quantity");
+    const decrease = document.querySelector(".decrease-quantity");
+
+    increase.addEventListener('click', () => increaseAmount(id));
+    decrease.addEventListener('click', () => decreaseAmount(id));
+}
+
+export function addEventListenerToAddToCart(id){
+    let data = collectCartContent(id);
+    document.querySelector('#buy').addEventListener('click', ()=>postFetch(data))
+}
+
+function collectCartContent(id){
+    return {
+        'quantity': parseInt(document.querySelector('.quantity-amount').innerHTML),
+        'id': parseInt(id)
     }
 }
