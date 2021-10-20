@@ -103,7 +103,7 @@
 .price-amount{
     font-style: italic;
     font-weight: bold;
-    font-size: 200%;
+    font-size: 150%;
 }
 
 .quantity-container{
@@ -114,4 +114,8 @@
 .button-container{
     display: flex;
     align-items: center;
+}
+
+.button-container a{
+    font-size: 90%;
 }
