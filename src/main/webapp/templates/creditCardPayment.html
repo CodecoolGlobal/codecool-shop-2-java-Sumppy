@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/creditCard.css">
+</head>
+<body>
+<div class="container">
+    <div class="credit-card-form">
+        <form action="/payment-process" method="post">
+            <p><label for="credit-card-number">Credit Card Number:</label></p>
+            <p><input id="credit-card-number" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="xxxx xxxx xxxx xxxx"></p>
+            <p><label for="card-holder">Card Holder Name:</label></p>
+            <p><input id="card-holder" type="text" placeholder="Darth Vader"></p>
+            <p><label>Expiration Date:</label></p>
+            <div class="expiration-container">
+            <input autocomplete="off" class="expiration" id="month" maxlength="2" pattern="[0-9]*" inputmode="numerical" placeholder="MM" type="text" data-pattern-validate />
+            <input autocomplete="off" class="expiration" id="year" maxlength="2" pattern="[0-9]*" inputmode="numerical" placeholder="YY" type="text" data-pattern-validate />
+            </div>
+            <p><label for="cvc">CVC:</label></p>
+            <p><input id="cvc" type="number" maxlength="3" placeholder="xxx"></p>
+            <button type="submit">Buy</button>
+        </form>
+    </div>
+    <img src="https://image.shutterstock.com/image-illustration/black-empty-credit-card-semimatt-260nw-1580771503.jpg" alt="sample credit card">
+</div>
+</body>
+</html>

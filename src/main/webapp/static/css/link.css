@@ -1,4 +1,7 @@
-
+a{
+    height: fit-content;
+    width: fit-content;
+}
 /*
 .dropdown-content {
     display: none;
