@@ -7,6 +7,24 @@
 </head>
 <body>
 <div class="container">
+    <div class="customer-details">
+        <p th:text="'name: '+${customerData.name}"></p>
+        <p th:text="'e-mail: '+${customerData.email}"></p>
+        <p th:text="'phone: '+${customerData.phone}"></p>
+
+        <h2>Billing Address</h2>
+        <p th:text="'country: '+${customerData.billingAddress.country}"></p>
+        <p th:text="'city: '+${customerData.billingAddress.city}"></p>
+        <p th:text="'zip code: '+${customerData.billingAddress.zipCode}"></p>
+        <p th:text="'address: '+${customerData.billingAddress.address}"></p>
+
+        <h2>Shipping Address</h2>
+        <p th:text="'country: '+${customerData.shippingAddress.country}"></p>
+        <p th:text="'city: '+${customerData.shippingAddress.city}"></p>
+        <p th:text="'zip code: '+${customerData.shippingAddress.zipCode}"></p>
+        <p th:text="'address: '+${customerData.shippingAddress.address}"></p>
+    </div>
+
     <div class="credit-card-form">
         <form action="/payment-process" method="post">
             <p><label for="credit-card-number">Credit Card Number:</label></p>
@@ -15,8 +33,8 @@
             <p><input id="card-holder" type="text" placeholder="Darth Vader"></p>
             <p><label>Expiration Date:</label></p>
             <div class="expiration-container">
-            <input autocomplete="off" class="expiration" id="month" maxlength="2" pattern="[0-9]*" inputmode="numerical" placeholder="MM" type="text" data-pattern-validate />
-            <input autocomplete="off" class="expiration" id="year" maxlength="2" pattern="[0-9]*" inputmode="numerical" placeholder="YY" type="text" data-pattern-validate />
+                <input autocomplete="off" class="expiration" id="month" maxlength="2" pattern="[0-9]*" inputmode="numerical" placeholder="MM" type="text" data-pattern-validate />
+                <input autocomplete="off" class="expiration" id="year" maxlength="2" pattern="[0-9]*" inputmode="numerical" placeholder="YY" type="text" data-pattern-validate />
             </div>
             <p><label for="cvc">CVC:</label></p>
             <p><input id="cvc" type="number" maxlength="3" placeholder="xxx"></p>
