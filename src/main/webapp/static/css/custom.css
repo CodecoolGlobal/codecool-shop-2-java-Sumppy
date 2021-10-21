@@ -94,3 +94,8 @@ body{
 .card-header{
     min-height: 140px;
 }
+
+.card{
+    min-height: 680px;
+    max-height: 680px;
+}
