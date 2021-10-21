@@ -1,3 +1,6 @@
+body{
+    background-color: rgba(0, 0, 0, 0.85);
+}
 
 .card {
     display: flex;
@@ -27,8 +30,7 @@
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-
-    margin-top: 5%;
+    margin-top: 3%;
 }
 
 .col-25 {
@@ -53,10 +55,11 @@
 }
 
 .container {
-    background-color: #f2f2f2;
-    padding: 5px 20px 15px 20px;
-    border: 1px solid lightgrey;
+    background-color: rgba(0, 0, 0, 0.15);
+    padding: 5px 20px 15px 0px;
+    border: 5px solid rgba(55,89,128,0.57);
     border-radius: 3px;
+    color: white;
 }
 
 input[type=text] {
@@ -79,25 +82,28 @@ label {
 }
 
 .btn {
-    background-color: #04AA6D;
     color: white;
     padding: 12px;
     margin: 10px 0;
-    border: none;
+    border: black solid;
     width: 100%;
-    border-radius: 3px;
+    border-radius: 1px;
     cursor: pointer;
     font-size: 17px;
+    background-color: #981633;
 }
 
 .btn:hover {
-    background-color: #45a049;
+    background-color: #ff2525;
+    border-color: black;
+    color: white;
 }
 
-span.price {
+.price {
     float: right;
-    color: grey;
+    color: white;
 }
+
 
 @media (max-width: 800px) {
     .row {
