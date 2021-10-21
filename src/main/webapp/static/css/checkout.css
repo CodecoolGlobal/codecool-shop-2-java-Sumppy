@@ -1,6 +1,15 @@
-.cart-container {
+
+.card {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+}
+
+.image {
+    max-width: 15em;
+    max-height: 15em;
+}
+
+.card-header {
 }
 
 #checkout {
