@@ -25,7 +25,7 @@
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <!-- End of Bootstrap components -->
 
-    <link rel="icon" type="image/png" href="/static/img/jawa.png"/>
+    <link rel="icon" type="image/png" href="/static/img/symbol.png"/>
     <link rel="stylesheet" type="text/css" href="/static/css/custom.css" />
     <link rel="stylesheet" type="text/css" href="/static/css/button.css" />
     <link rel="stylesheet" type="text/css" href="/static/css/dropdownDiv.css" />
@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="/static/css/image.css"/>
     <link rel="stylesheet" type="text/css" href="/static/css/sidebar.css"/>
     <link rel="stylesheet" type="text/css" href="/static/css/topNavbar.css"/>
-    <link rel="stylesheet" type="text/css" href="/static/css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/cardDesign.css"/>
 
     <script src="/static/js/modal.js" type="module" defer></script>
     <script src="/static/js/util.js" type="module" defer></script>
@@ -44,22 +44,33 @@
 
 <body>
 <div class="header">
+</div>
     <div class="header-elements">
         <div class="header-links">
-            <a href="/" class="jawa-image-link"><img class="jawa_image" src="/static/img/jawa.png" alt="jawazon-logo" width="15%"></a>
+            <a href="/" class="jawa-image-link"><img class="jawa_image" src="/static/img/symbol.png" alt="jawazon-logo" width="15%"></a>
             <a href="#" class="top-navbar-link">Index</a>
+            <div class="dropdown">
             <a href="#" class="top-navbar-link">Sort</a>
+                <div class="dropdown-content">
+                    <div  th:each="cat,iterStat: ${categories}">
+                        <a href="#" th:text="${cat.name}" th:attr="data-id=${cat.getId()}" data-filter="category" class="category-link"></a>
+                    </div>
+                </div>
+            </div>
             <a href="#" class="top-navbar-link">Account</a>
             <a href="#" class="top-navbar-link">Settings</a>
         </div>
+        <div class="cart">
+            <a href="/cart-page" class="cart-link"><img src="/static/img/pngegg2.png" alt="cart" width="5%"></a>
+        </div>
     </div>
-    </div>
+<hr class="hr-header">
 <button type="submit" class="sidebar-button">Click me</button>
 <div class="main-container">
 <div class="sidebar">
     <div><a href="#" class="closebtn">x</a></div><br>
-    <div  th:each="cat,iterStat: ${categories}" class="dropdown-content">
-        <a href="#" th:text="${cat.name}" th:attr="data-id=${cat.getId()}" data-filter="category" class="category-link"></a>
+    <div>
+    <img class="join-add" src="/static/img/join1.jpg" alt="join-the-empire">
     </div>
 </div>
 
@@ -73,10 +84,10 @@
                     <p class="card-text" th:text="${prod.description}">Product description... </p>
                 </div>
                 <div class="card-body">
-                    <div class="card-text">
-                        <p class="lead" th:text="${prod.getPrice()}">100 USD</p>
+                    <div class="price-text">
+                        <p class="lead" th:text="${prod.getPrice()} + ' Cr'">100 USD</p>
                     </div>
-                    <div class="card-text">
+                    <div class="buy-button">
                         <a th:attr="data-productId=${prod.id}" id="add-to-cart" class="btn btn-success" href="#">Buy</a>
                     </div>
                     <div th:id="${prod.id}" th:attr="data-price=${prod.getPrice()}" class="modal"></div>
@@ -88,7 +99,7 @@
 </div>
 </div>
 
-<!--<div th:replace="footer.html :: copy"></div>-->
+<div th:replace="footer.html :: copy"></div>
 
 </body>
 </html>

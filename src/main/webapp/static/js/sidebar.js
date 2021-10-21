@@ -1,5 +1,5 @@
 export function openSidebar(){
-    document.querySelector('.sidebar').style.width = '250px';
+    document.querySelector('.sidebar').style.width = '350px';
 }
 
 export function closeSidebar(){

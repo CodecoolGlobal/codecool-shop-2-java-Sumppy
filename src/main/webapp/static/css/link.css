@@ -2,6 +2,16 @@ a{
     height: fit-content;
     width: fit-content;
 }
+
+.cart-link{
+    margin-left: 90%;
+}
+
+.cart{
+    margin-top: 2%;
+}
+
+
 /*
 .dropdown-content {
     display: none;

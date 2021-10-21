@@ -4,6 +4,7 @@
 .top-navbar-content{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     margin-left: 5%;
     margin-top: 2%;
     margin-bottom: 2%;
@@ -14,6 +15,7 @@
     font-size: 150%;
     font-family: monospace;
     color: rgb(91, 91, 91);
+    text-shadow: 1px 1px red;
 }
 
 .active{
@@ -22,7 +24,8 @@
 
 .top-navbar-link:hover{
     text-decoration: none;
-    color: #b88d5c;
+    color:black;
+    text-shadow: #981633;
 }
 
 .header-elements{
