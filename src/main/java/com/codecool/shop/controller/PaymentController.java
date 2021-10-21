@@ -1,8 +1,12 @@
 package com.codecool.shop.controller;
 
 import com.codecool.shop.config.TemplateEngineUtil;
+import com.codecool.shop.dao.OrderDao;
+import com.codecool.shop.dao.implementation.OrderDaoMem;
 import com.codecool.shop.model.Address;
+import com.codecool.shop.model.Cart;
 import com.codecool.shop.model.CustomerData;
+import com.codecool.shop.model.Order;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
@@ -16,12 +20,17 @@ import java.io.IOException;
 @WebServlet(urlPatterns = {"/payment/credit-card"})
 public class PaymentController extends HttpServlet {
 
+    private final Cart cart = Cart.getInstance();
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         CustomerData customerData = getData(request);
+        Order order = new Order(cart, customerData);
+        OrderDao orderDao = OrderDaoMem.getInstance();
+        orderDao.add(order);
         TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(request.getServletContext());
         WebContext context = new WebContext(request, response, request.getServletContext());
         context.setVariable("customerData", customerData);
+        context.setVariable("orderId", order.getId());
         engine.process("creditCardPayment.html", context, response.getWriter());
 
     }
@@ -35,11 +44,11 @@ public class PaymentController extends HttpServlet {
     }
 
     private CustomerData getData(HttpServletRequest req) {
-        String name = req.getParameter("name");
+        String name = req.getParameter("firstname");
         String email = req.getParameter("email");
         String phone = req.getParameter("phone");
         Address billing = getAddress(req, "billing");
-        Address shipping = getAddress(req, "shipping");
+        Address shipping = getAddress(req, "billing");
         return new CustomerData(name, email, phone, billing, shipping);
     }
 }
