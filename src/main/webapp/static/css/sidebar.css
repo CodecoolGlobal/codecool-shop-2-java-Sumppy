@@ -6,7 +6,7 @@
     top: 0;
     width: 0;
     overflow-x: hidden;
-    background-color: #003792;
+    background-color: black;
     transition: 0.5s;
 }
 
@@ -29,11 +29,12 @@
     top: 0;
     right: 25px;
     font-size: 36px;
+    color: white;
 }
 
 .closebtn:hover{
     text-decoration: none;
-    color: white;
+    color: red;
 }
 
 .openbtn {
@@ -45,4 +46,16 @@
 .dropdown-content{
     height: fit-content;
     width: fit-content;
+}
+
+.sidebar-button{
+    margin-top: 2%;
+    background: rgba(55,89,128,0.57);
+    border: 1px solid white;
+    color: whitesmoke;
+    padding-left: 1%;
+    padding-right: 1%;
+    font-size: 150%;
+    font-family: monospace;
+    font-weight: bold;
 }
