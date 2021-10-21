@@ -90,3 +90,7 @@ body{
     width: 100%;
     bottom: 0;
 }
+
+.card-header{
+    min-height: 140px;
+}
