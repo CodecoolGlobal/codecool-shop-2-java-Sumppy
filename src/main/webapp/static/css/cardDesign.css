@@ -1,8 +1,19 @@
+.card{
+    border-radius: 15px;
+    border: 10px solid transparent;
+    background: lightgrey;
+}
+
 .card-body{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding-top: 11%;
+}
+
+.card-header{
+    background: rgba(55,89,128,0.57);
+    border-radius: 25px;
 }
 
 .buy-button{
@@ -12,5 +23,6 @@
 
 .lead{
     font-family: monospace;
-    font-size: 150%;
+    font-size: 200%;
+
 }
