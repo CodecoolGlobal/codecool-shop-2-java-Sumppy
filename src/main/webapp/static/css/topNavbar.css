@@ -14,6 +14,7 @@
     font-size: 150%;
     font-family: monospace;
     color: rgb(91, 91, 91);
+    text-shadow: 1px 1px red;
 }
 
 .active{
@@ -22,7 +23,8 @@
 
 .top-navbar-link:hover{
     text-decoration: none;
-    color: #b88d5c;
+    color:black;
+    text-shadow: #981633;
 }
 
 .header-elements{
