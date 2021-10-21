@@ -41,9 +41,9 @@ public class ConfirmationController extends HttpServlet {
         String toMail = order.getCustomerData().getEmail();
         StringBuilder message = new StringBuilder();
         message.append("Dear ").append(order.getCustomerData().getName()).append("!\n");
-        message.append("your order with ordernumber:").append(order.getId()).append("has been confirmed.\n");
-        message.append("Your order contains ").append(order.getCart().getCartItems()).append(".\n");
-        message.append("Thank you for your order!");
+        message.append("Your order with ordernumber: ").append(order.getId()).append(" has been confirmed.\n");
+        message.append("It contains ").append(order.getCart().getCartItems()).append(".\n");
+        message.append("Thank you for your purchase!");
         Password password = new Password();
         Email.send("techthings21@gmail.com", password.getPassword(), toMail,"Successful Order",message.toString());
     }
