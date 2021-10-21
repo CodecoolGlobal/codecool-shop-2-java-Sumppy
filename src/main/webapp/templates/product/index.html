@@ -50,9 +50,11 @@
             <a href="#" class="top-navbar-link">Index</a>
             <div class="dropdown">
             <a href="#" class="top-navbar-link">Sort</a>
-            <div  th:each="cat,iterStat: ${categories}" class="dropdown-content">
-                <a href="#" th:text="${cat.name}" th:attr="data-id=${cat.getId()}" data-filter="category" class="category-link"></a>
-            </div>
+                <div class="dropdown-content">
+                    <div  th:each="cat,iterStat: ${categories}">
+                        <a href="#" th:text="${cat.name}" th:attr="data-id=${cat.getId()}" data-filter="category" class="category-link"></a>
+                    </div>
+                </div>
             </div>
             <a href="#" class="top-navbar-link">Account</a>
             <a href="#" class="top-navbar-link">Settings</a>
