@@ -1,7 +1,9 @@
 package com.codecool.shop.controller;
 
 import com.codecool.shop.config.TemplateEngineUtil;
+import com.codecool.shop.dao.OrderDao;
 import com.codecool.shop.dao.implementation.OrderDaoMem;
+import com.codecool.shop.model.Email;
 import com.codecool.shop.model.Order;
 import com.google.gson.Gson;
 import org.thymeleaf.TemplateEngine;
@@ -22,13 +24,28 @@ public class ConfirmationController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Order order = OrderDaoMem.getInstance().find(Integer.parseInt(req.getParameter("orderId")));
+        String orderId = req.getParameter("orderId");
+        sendEmail(orderId);
+        Order order = OrderDaoMem.getInstance().find(Integer.parseInt(orderId));
         writeOrderIntoFile(order);
         TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(req.getServletContext());
         WebContext context = new WebContext(req, resp, req.getServletContext());
         String message = "Your order is confirmed. You can refer your order with your order number: " + order.getId();
         context.setVariable("message", message);
         engine.process("confirmation.html", context, resp.getWriter());
+    }
+
+    private void sendEmail(String orderId) {
+        OrderDao orderDao = OrderDaoMem.getInstance();
+        Order order = orderDao.find(Integer.parseInt(orderId));
+        String toMail = order.getCustomerData().getEmail();
+        StringBuilder message = new StringBuilder();
+        message.append("Dear ").append(order.getCustomerData().getName()).append("!\n");
+        message.append("Your order with ordernumber: ").append(order.getId()).append(" has been confirmed.\n");
+        message.append("It contains ").append(order.getCart().getCartItems()).append(".\n");
+        message.append("Thank you for your purchase!");
+        Password password = new Password();
+        Email.send("techthings21@gmail.com", password.getPassword(), toMail,"Successful Order",message.toString());
     }
 
     private void writeOrderIntoFile(Order order) throws IOException {
