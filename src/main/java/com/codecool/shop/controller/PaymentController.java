@@ -44,11 +44,11 @@ public class PaymentController extends HttpServlet {
     }
 
     private CustomerData getData(HttpServletRequest req) {
-        String name = req.getParameter("name");
+        String name = req.getParameter("firstname");
         String email = req.getParameter("email");
         String phone = req.getParameter("phone");
         Address billing = getAddress(req, "billing");
-        Address shipping = getAddress(req, "shipping");
+        Address shipping = getAddress(req, "billing");
         return new CustomerData(name, email, phone, billing, shipping);
     }
 }
