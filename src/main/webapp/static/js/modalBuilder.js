@@ -21,7 +21,7 @@ export function buildModal(id){
                 <p class="price-amount">${price} Cr</p>
             </div>
             <div class="button-container">
-                <a id="buy" class="btn btn-success" href="#">Add to cart</a>
+                <a id="buy" class="btn" href="#">Add to cart</a>
             </div>
         </div>
     </div>`

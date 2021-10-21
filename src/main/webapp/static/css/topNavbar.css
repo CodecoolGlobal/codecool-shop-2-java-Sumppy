@@ -14,7 +14,7 @@
     margin-left: 5%;
     font-size: 150%;
     font-family: monospace;
-    color: rgb(91, 91, 91);
+    color: white;
     text-shadow: 1px 1px red;
 }
 
@@ -24,7 +24,7 @@
 
 .top-navbar-link:hover{
     text-decoration: none;
-    color:black;
+    color: gray;
     text-shadow: #981633;
 }
 
