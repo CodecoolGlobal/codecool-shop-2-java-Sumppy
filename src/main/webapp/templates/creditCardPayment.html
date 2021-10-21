@@ -26,7 +26,7 @@
     </div>
 
     <div class="credit-card-form">
-        <form action="/payment-process" method="post">
+        <form th:action="@{/order-confirmation?orderId=__${orderId}__}" method="post">
             <p><label for="credit-card-number">Credit Card Number:</label></p>
             <p><input id="credit-card-number" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="xxxx xxxx xxxx xxxx"></p>
             <p><label for="card-holder">Card Holder Name:</label></p>
