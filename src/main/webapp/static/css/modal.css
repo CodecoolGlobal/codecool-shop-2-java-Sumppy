@@ -43,7 +43,7 @@
 
 .modal-header {
     padding: 1%;
-    background-color: #b88d5c;
+    background-color: rgba(0, 0, 0, 0.85);
     color: white;
 }
 
@@ -78,7 +78,7 @@
 }
 
 .decrease-quantity:hover{
-    color: #b88d5c;
+    color: #981633;
     text-decoration: none;
 }
 
@@ -95,7 +95,7 @@
 }
 
 .increase-quantity:hover{
-    color: #b88d5c;
+    color: #981633;
     text-decoration: none;
 }
 
