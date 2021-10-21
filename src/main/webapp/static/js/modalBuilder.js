@@ -1,6 +1,7 @@
 export function buildModal(id){
     let modalDiv = document.getElementById(id);
     const price = modalDiv.dataset.price;
+    console.log(price)
     modalDiv.innerHTML = `<div class="modal-content">
         <div class="modal-header">
             <span class="close">&times</span>
@@ -17,7 +18,7 @@ export function buildModal(id){
                 </div>
             </div>
             <div class="price-container">
-                <p class="price-amount">${price}</p>
+                <p class="price-amount">${price} Cr</p>
             </div>
             <div class="button-container">
                 <a id="buy" class="btn btn-success" href="#">Add to cart</a>

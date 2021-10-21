@@ -18,13 +18,13 @@ export function fillHtmlElementWithProducts(htmlElement, data){
                     <p class="card-text">${d.description}</p>
                 </div>
                 <div class="card-body">
-                    <div class="card-text">
+                    <div class="price-text">
                         <p class="lead">${d.defaultPrice} ${d.defaultCurrency}</p>
                     </div>
-                    <div class="card-text">
+                    <div class="buy-button">
                         <a id="add-to-cart" class="btn btn-success" href="#" data-productId="${d.id}">Buy</a>
                     </div>
-                     <div id="${d.id}" class="modal"></div>
+                     <div id="${d.id}" data-price="${d.defaultPrice}" class="modal"></div>
                 </div>
             </div>
         </div>

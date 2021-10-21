@@ -1,0 +1,16 @@
+.card-body{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 11%;
+}
+
+.buy-button{
+    display: flex;
+    align-items: center;
+}
+
+.lead{
+    font-family: monospace;
+    font-size: 150%;
+}
