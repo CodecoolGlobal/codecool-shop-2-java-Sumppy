@@ -5,6 +5,7 @@ import com.codecool.shop.model.Cart;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,4 +26,13 @@ public class CartPageController extends HttpServlet {
         context.setVariable("products", cart.getCart());
         engine.process("product/cart.html", context, resp.getWriter());
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/payment/credit-card");
+        dispatcher.forward(req, resp);
+    }
+
+
 }
