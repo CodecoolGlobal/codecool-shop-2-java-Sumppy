@@ -1,0 +1,22 @@
+body{
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+h1{
+    color: #981633;
+    font-size: 500%;
+    text-align: center;
+}
+
+p{
+    color: white;
+    text-align: center;
+    font-size: 250%;
+}
+
+img{
+    width: 450px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
