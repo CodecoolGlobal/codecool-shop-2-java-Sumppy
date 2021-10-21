@@ -79,3 +79,13 @@ body{
     border: 10px solid transparent;
     background: rgba(95, 99, 103, 0.88);
 }
+
+.footer-body{
+    color: white;
+}
+
+.footer-card{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
