@@ -64,13 +64,13 @@
             <a href="/cart-page" class="cart-link"><img src="/static/img/pngegg2.png" alt="cart" width="5%"></a>
         </div>
     </div>
-    </div>
+<hr class="hr-header">
 <button type="submit" class="sidebar-button">Click me</button>
 <div class="main-container">
 <div class="sidebar">
     <div><a href="#" class="closebtn">x</a></div><br>
-    <div  th:each="cat,iterStat: ${categories}" class="dropdown-content">
-        <a href="#" th:text="${cat.name}" th:attr="data-id=${cat.getId()}" data-filter="category" class="category-link"></a>
+    <div>
+    <img class="join-add" src="/static/img/join1.jpg" alt="join-the-empire">
     </div>
 </div>
 
@@ -99,7 +99,7 @@
 </div>
 </div>
 
-<!--<div th:replace="footer.html :: copy"></div>-->
+<div th:replace="footer.html :: copy"></div>
 
 </body>
 </html>
