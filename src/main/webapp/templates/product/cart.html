@@ -25,6 +25,7 @@
 
 </head>
 <body>
+<a href="/" class="jawa-image-link"><img class="jawa_image" src="/static/img/symbol.png" alt="jawazon-logo" width="6.5%"></a>
 <div class="row">
     <div class="col-75">
         <div class="container">
@@ -59,7 +60,7 @@
                 <label>
                     <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
                 </label>
-                <input type="submit" value="Continue to checkout" class="btn">
+                <input type="submit" value="Continue to payment" class="btn">
             </form>
         </div>
     </div>
@@ -76,7 +77,7 @@
             <p><a href="#" th:text="${prod.key.name}"></a> <span class="price" th:text="${prod.key.price}  * ${prod.value}"></span></p>
             </div>
             <hr>
-            <p>Total <span class="price" style="color:black" th:text="${cartValue} + ' Cr'"><b></b></span></p>
+            <p>Total <span class="price" th:text="${cartValue} + ' Cr'"><b></b></span></p>
         </div>
     </div>
 </div>
