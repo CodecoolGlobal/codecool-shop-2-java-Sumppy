@@ -25,20 +25,23 @@ public class Initializer implements ServletContextListener {
         SupplierDao supplierDataStore = SupplierDaoMem.getInstance();
 
         //setting up a new supplier
-        Supplier amazon = new Supplier("Amazon", "Digital content and services");
-        supplierDataStore.add(amazon);
-        Supplier lenovo = new Supplier("Lenovo", "Computers");
-        supplierDataStore.add(lenovo);
+        Supplier empire = new Supplier("Empire", "Safe, reliable, fair empire");
+        supplierDataStore.add(empire);
+        Supplier ryloth = new Supplier("Ryloth", "Recourse wise a rich planet");
+        supplierDataStore.add(ryloth);
 
         //setting up a new product category
-        ProductCategory tablet = new ProductCategory("Tablet", "Hardware", "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.");
-        productCategoryDataStore.add(tablet);
-        ProductCategory smartphone = new ProductCategory("Smartphone", "Hardware", "Smartphone description");
-        productCategoryDataStore.add(smartphone);
+        ProductCategory vehicle = new ProductCategory("Vehicle", "Transport", "A unique way to move around in the galaxy.");
+        productCategoryDataStore.add(vehicle);
+        ProductCategory weapon = new ProductCategory("Weapon", "War", "Used to kill enemy.");
+        productCategoryDataStore.add(weapon);
 
         //setting up products and printing it
-        productDataStore.add(new Product("Amazon Fire", new BigDecimal("49.9"), "Cr", "Fantastic price. Large content ecosystem. Good parental controls. Helpful technical support.", tablet, amazon));
-        productDataStore.add(new Product("Lenovo IdeaPad Miix 700", new BigDecimal("479"), "Cr", "Keyboard cover is included. Fanless Core m5 processor. Full-size USB ports. Adjustable kickstand.", tablet, lenovo));
-        productDataStore.add(new Product("Amazon Fire HD 8", new BigDecimal("89"), "Cr", "Amazon's latest Fire HD 8 tablet is a great value for media consumption.", tablet, amazon));
+        productDataStore.add(new Product("Tie-fighter", new BigDecimal("599"), "Cr", "Fantastic price. Barely used. Great for transportation. It is unarmed by the technical engineers of the Empire", vehicle, empire));
+        productDataStore.add(new Product("Slave from Tatooine", new BigDecimal("99"), "Cr", "Loyal. Great way to cut down your grass. Cheap price for cheap work.                                   ", vehicle, ryloth));
+        productDataStore.add(new Product("Battle Droid", new BigDecimal("30"), "Cr", "NOT WORKING. Comes without a weapon, great for melting down and forging something out of it.                  ", vehicle, empire));
+        productDataStore.add(new Product("Vader school kit", new BigDecimal("15"), "Cr", "Best merch in the Galaxy! Show Lord Vader some support by buying this kit!!                               ", vehicle, empire));
+        productDataStore.add(new Product("Clone trooper blaster", new BigDecimal("49"), "Cr", "Old but gold. It is not working but a great way to remember what killed the Jedi ;)                  ", weapon, empire));
+        productDataStore.add(new Product("Mercedes SW edition", new BigDecimal("499"), "Cr", "The best gag that the writer could find at 18:50 yesterday so don't even ask what the hek is this...", weapon, empire));
     }
 }
