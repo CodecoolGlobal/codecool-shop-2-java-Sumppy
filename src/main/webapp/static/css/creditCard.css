@@ -32,12 +32,15 @@ button{
     padding-left: 1%;
     padding-right: 1%;
     font-size: 150%;
-    font-family: monospace;
     font-weight: bold;
 }
 
 .customer-details{
     margin-right: 2%;
+    font-family: "Source Sans Pro", "Arial", sans-serif;}
+
+.credit-card-form{
+    font-family: "Source Sans Pro", "Arial", sans-serif;
 }
 
 .a{
