@@ -47,7 +47,7 @@ public class Cart {
     public String getCartItems() {
         StringBuilder sb = new StringBuilder();
         for (Product product : cart.keySet()) {
-            sb.append(cart.get(product)).append("number of").append(product.name);
+            sb.append(cart.get(product)+" ").append("number of ").append(product.name).append("\n");
         }
         return sb.toString();
     }
