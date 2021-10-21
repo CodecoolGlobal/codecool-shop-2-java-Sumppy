@@ -44,6 +44,14 @@ public class Cart {
         return valueOfCart;
     }
 
+    public String getCartItems() {
+        StringBuilder sb = new StringBuilder();
+        for (Product product : cart.keySet()) {
+            sb.append(cart.get(product)).append("number of").append(product.name);
+        }
+        return sb.toString();
+    }
+
     public void deleteProduct(Product product) {
         cart.remove(product);
     }
