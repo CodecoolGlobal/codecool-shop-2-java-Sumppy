@@ -23,4 +23,12 @@ public class Order {
     public void setLastFourDigitsOfCardNumber(String lastFourDigitsOfCardNumber) {
         this.lastFourDigitsOfCardNumber = lastFourDigitsOfCardNumber;
     }
+
+    public CustomerData getCustomerData() {
+        return customerData;
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
 }
