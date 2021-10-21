@@ -24,3 +24,8 @@
     text-decoration: none;
     color: #b88d5c;
 }
+
+.header-elements{
+    display: flex;
+    flex-direction: row;
+}
