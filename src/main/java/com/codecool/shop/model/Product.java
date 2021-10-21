@@ -6,7 +6,7 @@ import java.util.Currency;
 public class Product extends BaseModel {
 
     private BigDecimal defaultPrice;
-    private Currency defaultCurrency;
+    private String defaultCurrency;
     private transient ProductCategory productCategory;
     private transient Supplier supplier;
 
@@ -26,21 +26,21 @@ public class Product extends BaseModel {
         this.defaultPrice = defaultPrice;
     }
 
-    public Currency getDefaultCurrency() {
+    public String getDefaultCurrency() {
         return defaultCurrency;
     }
 
-    public void setDefaultCurrency(Currency defaultCurrency) {
+    public void setDefaultCurrency(String defaultCurrency) {
         this.defaultCurrency = defaultCurrency;
     }
 
     public String getPrice() {
-        return String.valueOf(this.defaultPrice) + " " + this.defaultCurrency.toString();
+        return String.valueOf(this.defaultPrice);
     }
 
     public void setPrice(BigDecimal price, String currency) {
         this.defaultPrice = price;
-        this.defaultCurrency = Currency.getInstance(currency);
+        this.defaultCurrency = currency;
     }
 
     public ProductCategory getProductCategory() {
