@@ -4,6 +4,7 @@
 .top-navbar-content{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     margin-left: 5%;
     margin-top: 2%;
     margin-bottom: 2%;
