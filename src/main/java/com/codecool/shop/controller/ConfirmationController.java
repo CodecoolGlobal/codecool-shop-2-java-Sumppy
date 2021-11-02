@@ -44,8 +44,7 @@ public class ConfirmationController extends HttpServlet {
         message.append("Your order with ordernumber: ").append(order.getId()).append(" has been confirmed.\n");
         message.append("It contains ").append(order.getCart().getCartItems()).append(".\n");
         message.append("Thank you for your purchase!");
-        Password password = new Password();
-        Email.send("techthings21@gmail.com", password.getPassword(), toMail,"Successful Order",message.toString());
+        Email.send("kristof.kelle@gmail.com", System.getenv("PASSWORD"), toMail,"Successful Order",message.toString());
     }
 
     private void writeOrderIntoFile(Order order) throws IOException {
