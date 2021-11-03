@@ -1,4 +1,4 @@
-package com.codecool.shop.dao.implementation.queries;
+package com.codecool.shop.queries;
 
 public class Queries {
     public static String addProduct(){
