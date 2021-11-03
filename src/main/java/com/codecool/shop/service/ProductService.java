@@ -13,6 +13,10 @@ public class ProductService{
     private ProductCategoryDao productCategoryDao;
     private SupplierDao supplierDao;
 
+    public ProductService(ProductDao productDao) {
+        this.productDao = productDao;
+    }
+
     public ProductService(ProductDao productDao, ProductCategoryDao productCategoryDao) {
         this.productDao = productDao;
         this.productCategoryDao = productCategoryDao;
@@ -36,5 +40,9 @@ public class ProductService{
     public List<Product> getProductsForSupplier(int supplierId){
         var supplier = supplierDao.find(supplierId);
         return productDao.getBy(supplier);
+    }
+
+    public Product findProductById(int productId) {
+        return productDao.find(productId);
     }
 }

@@ -7,6 +7,7 @@ import com.codecool.shop.model.Address;
 import com.codecool.shop.model.Cart;
 import com.codecool.shop.model.CustomerData;
 import com.codecool.shop.model.Order;
+import com.codecool.shop.service.OrderService;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
@@ -21,26 +22,19 @@ import java.io.IOException;
 public class PaymentController extends HttpServlet {
 
     private final Cart cart = Cart.getInstance();
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         CustomerData customerData = getData(request);
-        Order order = new Order(cart, customerData);
-        OrderDao orderDao = OrderDaoMem.getInstance();
-        orderDao.add(order);
+        OrderService orderService = new OrderService();
+        Order order = orderService.createNewOrder(cart, customerData);
+        orderService.addNewOrderToDatabase(order);
         TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(request.getServletContext());
         WebContext context = new WebContext(request, response, request.getServletContext());
         context.setVariable("customerData", customerData);
         context.setVariable("orderId", order.getId());
         engine.process("creditCardPayment.html", context, response.getWriter());
 
-    }
-
-    private Address getAddress(HttpServletRequest req, String addressType) {
-        String country = req.getParameter(addressType + "-country");
-        String city = req.getParameter(addressType + "-city");
-        String zipCode = req.getParameter(addressType + "-zip-code");
-        String address = req.getParameter(addressType + "-address");
-        return new Address(country, city, zipCode, address);
     }
 
     private CustomerData getData(HttpServletRequest req) {
@@ -50,5 +44,13 @@ public class PaymentController extends HttpServlet {
         Address billing = getAddress(req, "billing");
         Address shipping = getAddress(req, "billing");
         return new CustomerData(name, email, phone, billing, shipping);
+    }
+
+    private Address getAddress(HttpServletRequest req, String addressType) {
+        String country = req.getParameter(addressType + "-country");
+        String city = req.getParameter(addressType + "-city");
+        String zipCode = req.getParameter(addressType + "-zip-code");
+        String address = req.getParameter(addressType + "-address");
+        return new Address(country, city, zipCode, address);
     }
 }
