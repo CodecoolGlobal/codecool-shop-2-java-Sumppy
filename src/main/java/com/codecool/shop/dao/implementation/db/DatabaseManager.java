@@ -13,7 +13,7 @@ public class DatabaseManager {
 
     public void setup() throws SQLException {
         DataSource dataSource = connect();
-        orderDaoDb = new OrderDaoDb();
+        orderDaoDb = new OrderDaoDb(dataSource);
         productCategoryDaoDb = new ProductCategoryDaoDb();
         productDaoDb = new ProductDaoDb();
         supplierDaoDb = new SupplierDaoDb();
