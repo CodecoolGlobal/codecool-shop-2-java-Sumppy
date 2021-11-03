@@ -3,6 +3,8 @@ package com.codecool.shop.config;
 import com.codecool.shop.dao.ProductCategoryDao;
 import com.codecool.shop.dao.ProductDao;
 import com.codecool.shop.dao.SupplierDao;
+import com.codecool.shop.dao.implementation.db.DatabaseManager;
+import com.codecool.shop.dao.implementation.db.OrderDaoDb;
 import com.codecool.shop.dao.implementation.mem.ProductCategoryDaoMem;
 import com.codecool.shop.dao.implementation.mem.ProductDaoMem;
 import com.codecool.shop.dao.implementation.mem.SupplierDaoMem;
@@ -14,15 +16,22 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 import java.math.BigDecimal;
+import java.sql.SQLException;
 
 @WebListener
 public class Initializer implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        ProductDao productDataStore = ProductDaoMem.getInstance();
-        ProductCategoryDao productCategoryDataStore = ProductCategoryDaoMem.getInstance();
-        SupplierDao supplierDataStore = SupplierDaoMem.getInstance();
+        DatabaseManager databaseManager = new DatabaseManager();
+        try {
+            databaseManager.setup();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        ProductDao productDataStore = databaseManager.getProductDaoDb();
+        ProductCategoryDao productCategoryDataStore = databaseManager.getProductCategoryDaoDb();
+        SupplierDao supplierDataStore = databaseManager.getSupplierDaoDb();
 
         //setting up a new supplier
         Supplier empire = new Supplier("Empire", "Safe, reliable, fair empire");

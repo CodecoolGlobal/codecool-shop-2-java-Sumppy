@@ -35,4 +35,20 @@ public class DatabaseManager {
 
         return dataSource;
     }
+
+    public OrderDaoDb getOrderDaoDb() {
+        return orderDaoDb;
+    }
+
+    public ProductCategoryDaoDb getProductCategoryDaoDb() {
+        return productCategoryDaoDb;
+    }
+
+    public ProductDaoDb getProductDaoDb() {
+        return productDaoDb;
+    }
+
+    public SupplierDaoDb getSupplierDaoDb() {
+        return supplierDaoDb;
+    }
 }
