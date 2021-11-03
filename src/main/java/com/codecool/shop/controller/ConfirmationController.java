@@ -5,6 +5,8 @@ import com.codecool.shop.dao.OrderDao;
 import com.codecool.shop.dao.implementation.OrderDaoMem;
 import com.codecool.shop.model.Email;
 import com.codecool.shop.model.Order;
+import com.codecool.shop.service.OrderService;
+import com.codecool.shop.service.ProductService;
 import com.google.gson.Gson;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
@@ -25,8 +27,9 @@ public class ConfirmationController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String orderId = req.getParameter("orderId");
-        sendEmail(orderId);
-        Order order = OrderDaoMem.getInstance().find(Integer.parseInt(orderId));
+        OrderService orderService = new OrderService();
+        Order order = orderService.findOrderId(orderId);
+        sendEmail(order);
         writeOrderIntoFile(order);
         TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(req.getServletContext());
         WebContext context = new WebContext(req, resp, req.getServletContext());
@@ -35,9 +38,7 @@ public class ConfirmationController extends HttpServlet {
         engine.process("confirmation.html", context, resp.getWriter());
     }
 
-    private void sendEmail(String orderId) {
-        OrderDao orderDao = OrderDaoMem.getInstance();
-        Order order = orderDao.find(Integer.parseInt(orderId));
+    private void sendEmail(Order order) {
         String toMail = order.getCustomerData().getEmail();
         StringBuilder message = new StringBuilder();
         message.append("Dear ").append(order.getCustomerData().getName()).append("!\n");
