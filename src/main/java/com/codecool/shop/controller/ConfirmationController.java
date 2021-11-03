@@ -1,12 +1,9 @@
 package com.codecool.shop.controller;
 
 import com.codecool.shop.config.TemplateEngineUtil;
-import com.codecool.shop.dao.OrderDao;
-import com.codecool.shop.dao.implementation.OrderDaoMem;
 import com.codecool.shop.model.Email;
 import com.codecool.shop.model.Order;
 import com.codecool.shop.service.OrderService;
-import com.codecool.shop.service.ProductService;
 import com.google.gson.Gson;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
