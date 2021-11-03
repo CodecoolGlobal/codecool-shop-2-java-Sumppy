@@ -1,5 +1,8 @@
 package com.codecool.shop.model;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
@@ -9,6 +12,8 @@ public class Cart {
     private Map<Product, Integer> cart = new HashMap<>();
     private static Cart instance = null;
     private BigDecimal valueOfCart = new BigDecimal(0);
+
+    private static final Logger logger = LoggerFactory.getLogger(Cart.class);
 
     private Cart() {}
 
@@ -20,12 +25,14 @@ public class Cart {
     }
 
     public void updateProduct(Product product, int newQuantity) {
+        int oldQuantity = cart.getOrDefault(product, 0);
         if (newQuantity==0) {
             deleteProduct(product);
         } else {
             cart.put(product, newQuantity);
             calculateCartValue();
         }
+        logger.debug("Number of '{}' set to {}, old value was: {} ", product.getName(), cart.get(product), oldQuantity);
     }
 
     public Map<Product, Integer> getCart() {
@@ -37,7 +44,9 @@ public class Cart {
         for (Product product : cart.keySet()) {
             valueSum = valueSum.add(product.getDefaultPrice().multiply(new BigDecimal(cart.get(product))));
         }
+        BigDecimal oldCartValue = valueOfCart;
         valueOfCart = valueSum;
+        logger.debug("Cart value set to : {}, old value: {}", valueOfCart, oldCartValue);
     }
 
     public BigDecimal getValueOfCart() {
