@@ -1,7 +1,9 @@
 package com.codecool.shop.model;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.math.BigDecimal;
-import java.util.Currency;
 
 public class Product extends BaseModel {
 
@@ -10,6 +12,7 @@ public class Product extends BaseModel {
     private transient ProductCategory productCategory;
     private transient Supplier supplier;
 
+    private static final Logger logger = LoggerFactory.getLogger(Product.class);
 
     public Product(String name, BigDecimal defaultPrice, String currencyString, String description, ProductCategory productCategory, Supplier supplier) {
         super(name, description);
@@ -39,8 +42,10 @@ public class Product extends BaseModel {
     }
 
     public void setPrice(BigDecimal price, String currency) {
+        BigDecimal oldPrice = this.defaultPrice == null ? BigDecimal.valueOf(0) : this.defaultPrice;
         this.defaultPrice = price;
         this.defaultCurrency = currency;
+        logger.warn("{}'s price was set to {}, old value was {}", this.name, price, oldPrice);
     }
 
     public ProductCategory getProductCategory() {
