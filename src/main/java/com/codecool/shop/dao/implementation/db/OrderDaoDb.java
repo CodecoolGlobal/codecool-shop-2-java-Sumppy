@@ -2,6 +2,7 @@ package com.codecool.shop.dao.implementation.db;
 
 import com.codecool.shop.dao.OrderDao;
 import com.codecool.shop.model.Order;
+import com.codecool.shop.queries.Queries;
 
 import javax.sql.DataSource;
 import java.sql.*;
@@ -16,7 +17,7 @@ public class OrderDaoDb implements OrderDao {
     @Override
     public void add(Order order) {
         try(Connection conn = dataSource.getConnection()){
-            String sql = Queries.method();
+            String sql = "";
             PreparedStatement statement = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ResultSet resultSet = statement.getGeneratedKeys();
             resultSet.next();
