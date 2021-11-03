@@ -28,7 +28,7 @@ public class ProductController extends HttpServlet {
         ProductDao productDataStore = ProductDaoMem.getInstance();
         SupplierDao supplierDataStore = SupplierDaoMem.getInstance();
         ProductCategoryDao productCategoryDataStore = ProductCategoryDaoMem.getInstance();
-        ProductService productService = new ProductService(productDataStore,productCategoryDataStore);
+//        ProductService productService = new ProductService(productDataStore,productCategoryDataStore);
 
         TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(req.getServletContext());
         WebContext context = new WebContext(req, resp, req.getServletContext());
