@@ -8,6 +8,9 @@ public class Order {
     private String lastFourDigitsOfCardNumber;
 
     public Order(Cart cart, CustomerData customerData) {
+        if (cart == null || customerData == null) {
+            throw new IllegalArgumentException("argument was null");
+        }
         this.cart = cart;
         this.customerData = customerData;
     }
