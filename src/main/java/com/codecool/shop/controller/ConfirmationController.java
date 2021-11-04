@@ -1,6 +1,7 @@
 package com.codecool.shop.controller;
 
 import com.codecool.shop.config.TemplateEngineUtil;
+import com.codecool.shop.dao.implementation.mem.OrderDaoMem;
 import com.codecool.shop.model.Email;
 import com.codecool.shop.model.Order;
 import com.codecool.shop.service.OrderService;

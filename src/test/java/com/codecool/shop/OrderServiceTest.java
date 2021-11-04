@@ -2,7 +2,7 @@ package com.codecool.shop;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import com.codecool.shop.dao.implementation.OrderDaoMem;
+import com.codecool.shop.dao.implementation.mem.OrderDaoMem;
 import com.codecool.shop.model.Address;
 import com.codecool.shop.model.Cart;
 import com.codecool.shop.model.CustomerData;
