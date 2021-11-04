@@ -27,8 +27,10 @@ public class ConfirmationController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String orderId = req.getParameter("orderId");
-        OrderService orderService = new OrderService();
-        Order order = orderService.findOrderId(orderId);
+        OrderDaoMem orderDaoMem = OrderDaoMem.getInstance();
+        OrderService orderService = new OrderService(orderDaoMem);
+
+        Order order = orderService.findOrderById(orderId);
         sendEmail(order);
         writeOrderIntoFile(order);
         TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(req.getServletContext());
