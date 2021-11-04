@@ -26,7 +26,8 @@ public class PaymentController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         CustomerData customerData = getData(request);
-        OrderService orderService = new OrderService();
+        OrderDaoMem orderDaoMem = OrderDaoMem.getInstance();
+        OrderService orderService = new OrderService(orderDaoMem);
         Order order = orderService.createNewOrder(cart, customerData);
         orderService.addNewOrderToDatabase(order);
         TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(request.getServletContext());
