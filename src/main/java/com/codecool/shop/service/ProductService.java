@@ -17,6 +17,13 @@ public class ProductService{
     private final ProductCategoryDao productCategoryDao;
     private final SupplierDao supplierDao;
 
+    //ONLY for test
+    public ProductService(ProductDao productDao, ProductCategoryDao productCategoryDao, SupplierDao supplierDao) {
+        this.productDao = productDao;
+        this.productCategoryDao = productCategoryDao;
+        this.supplierDao = supplierDao;
+    }
+
     public ProductService(){
         if(Initializer.isDatabaseAvailable){
             DatabaseManager databaseManager = new DatabaseManager();
