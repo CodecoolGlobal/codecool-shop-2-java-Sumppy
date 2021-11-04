@@ -8,8 +8,14 @@ import com.codecool.shop.model.Order;
 
 public class OrderService {
 
-    public Order findOrderId(String orderId) {
-        return OrderDaoMem.getInstance().find(Integer.parseInt(orderId));
+    OrderDaoMem orderDaoMem;
+
+    public OrderService(OrderDaoMem orderDaoMem) {
+        this.orderDaoMem = orderDaoMem;
+    }
+
+    public Order findOrderById(String orderId) {
+        return orderDaoMem.find(Integer.parseInt(orderId));
     }
 
     public Order createNewOrder(Cart cart, CustomerData customerData) {
@@ -17,8 +23,7 @@ public class OrderService {
     }
 
     public void addNewOrderToDatabase(Order order) {
-        OrderDao orderDao = OrderDaoMem.getInstance();
-        orderDao.add(order);
+        orderDaoMem.add(order);
     }
 
 }
