@@ -5,6 +5,8 @@ import com.codecool.shop.model.Email;
 import com.codecool.shop.model.Order;
 import com.codecool.shop.service.OrderService;
 import com.google.gson.Gson;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
@@ -19,6 +21,7 @@ import java.io.IOException;
 @WebServlet(urlPatterns = {"/order-confirmation"})
 public class ConfirmationController extends HttpServlet {
 
+    private static final Logger logger = LoggerFactory.getLogger(ConfirmationController.class);
     private final Gson gson = new Gson();
 
     @Override
@@ -46,10 +49,15 @@ public class ConfirmationController extends HttpServlet {
     }
 
     private void writeOrderIntoFile(Order order) throws IOException {
-        String json = gson.toJson(order);
-        FileWriter writer = new FileWriter("order" + order.getId()+".json");
-        writer.write(json);
-        writer.flush();
-        writer.close();
+        try {
+            String json = gson.toJson(order);
+            FileWriter writer = new FileWriter("order" + order.getId() + ".json");
+            writer.write(json);
+            writer.flush();
+            writer.close();
+        }
+        catch (IOException err) {
+            logger.error("Wrong file name.", err);
+        }
     }
 }
