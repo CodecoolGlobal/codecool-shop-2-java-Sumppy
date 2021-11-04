@@ -1,33 +1,51 @@
 package com.codecool.shop.service;
 
+import com.codecool.shop.config.Initializer;
 import com.codecool.shop.dao.ProductCategoryDao;
 import com.codecool.shop.dao.ProductDao;
 import com.codecool.shop.dao.SupplierDao;
+import com.codecool.shop.dao.implementation.db.DatabaseManager;
 import com.codecool.shop.model.Product;
 import com.codecool.shop.model.ProductCategory;
+import com.codecool.shop.model.Supplier;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class ProductService{
-    private ProductDao productDao;
-    private ProductCategoryDao productCategoryDao;
-    private SupplierDao supplierDao;
+    private final ProductDao productDao;
+    private final ProductCategoryDao productCategoryDao;
+    private final SupplierDao supplierDao;
 
-    public ProductService(ProductDao productDao) {
-        this.productDao = productDao;
+    public ProductService(){
+        if(Initializer.isDatabaseAvailable){
+            DatabaseManager databaseManager = new DatabaseManager();
+            try {
+                databaseManager.setup();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            this.productDao = databaseManager.getProductDaoDb();
+            this.productCategoryDao = databaseManager.getProductCategoryDaoDb();
+            this.supplierDao = databaseManager.getSupplierDaoDb();
+        }
     }
 
-    public ProductService(ProductDao productDao, ProductCategoryDao productCategoryDao) {
-        this.productDao = productDao;
-        this.productCategoryDao = productCategoryDao;
-    }
+    /*public ProductService(ProductDao productDao) {
+            this.productDao = productDao;
+        }
 
-    public ProductService(ProductDao productDao, ProductCategoryDao productCategoryDao, SupplierDao supplierDao) {
-        this.productDao = productDao;
-        this.productCategoryDao = productCategoryDao;
-        this.supplierDao = supplierDao;
-    }
+        public ProductService(ProductDao productDao, ProductCategoryDao productCategoryDao) {
+            this.productDao = productDao;
+            this.productCategoryDao = productCategoryDao;
+        }
 
+        public ProductService(ProductDao productDao, ProductCategoryDao productCategoryDao, SupplierDao supplierDao) {
+            this.productDao = productDao;
+            this.productCategoryDao = productCategoryDao;
+            this.supplierDao = supplierDao;
+        }
+    */
     public ProductCategory getProductCategory(int categoryId){
         return productCategoryDao.find(categoryId);
     }
@@ -44,5 +62,17 @@ public class ProductService{
 
     public Product findProductById(int productId) {
         return productDao.find(productId);
+    }
+
+    public List<ProductCategory> getAllCategories(){
+        return productCategoryDao.getAll();
+    }
+
+    public List<Supplier> getAllSuppliers() {
+        return supplierDao.getAll();
+    }
+
+    public List<Product> getAllProduct() {
+        return productDao.getAll();
     }
 }

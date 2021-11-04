@@ -15,8 +15,8 @@ public class DatabaseManager {
         DataSource dataSource = connect();
         orderDaoDb = new OrderDaoDb(dataSource);
         productCategoryDaoDb = new ProductCategoryDaoDb(dataSource);
-        productDaoDb = new ProductDaoDb(dataSource, productCategoryDaoDb, supplierDaoDb);
         supplierDaoDb = new SupplierDaoDb(dataSource);
+        productDaoDb = new ProductDaoDb(dataSource, productCategoryDaoDb, supplierDaoDb);
     }
 
     private DataSource connect() throws SQLException{
@@ -34,5 +34,21 @@ public class DatabaseManager {
         System.out.println("Connection ok.");
 
         return dataSource;
+    }
+
+    public OrderDaoDb getOrderDaoDb() {
+        return orderDaoDb;
+    }
+
+    public ProductCategoryDaoDb getProductCategoryDaoDb() {
+        return productCategoryDaoDb;
+    }
+
+    public ProductDaoDb getProductDaoDb() {
+        return productDaoDb;
+    }
+
+    public SupplierDaoDb getSupplierDaoDb() {
+        return supplierDaoDb;
     }
 }

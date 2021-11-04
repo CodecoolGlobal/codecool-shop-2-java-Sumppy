@@ -24,10 +24,9 @@ public class ProductCategoryDaoDb implements ProductCategoryDao {
             String sql = Queries.addCategory();
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-            statement.setInt(1, category.getId());
-            statement.setString(2, category.getName());
-            statement.setString(3, category.getDepartment());
-            statement.setString(4, category.getDescription());
+            statement.setString(1, category.getName());
+            statement.setString(2, category.getDepartment());
+            statement.setString(3, category.getDescription());
             statement.executeUpdate();
 
             ResultSet resultSet = statement.getGeneratedKeys();

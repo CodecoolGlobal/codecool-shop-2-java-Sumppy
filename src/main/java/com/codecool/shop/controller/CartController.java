@@ -18,8 +18,7 @@ public class CartController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) {
-        ProductDao productDao = ProductDaoMem.getInstance();
-        ProductService productService = new ProductService(productDao);
+        ProductService productService = new ProductService();
         int quantityOfProduct = Integer.parseInt(request.getParameter("quantity"));
         int productId = Integer.parseInt(request.getParameter("id"));
         Product product = productService.findProductById(productId);

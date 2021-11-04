@@ -27,10 +27,7 @@ public class FilterController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ProductDao productDataStore = ProductDaoMem.getInstance();
-        ProductCategoryDao productCategoryDataStore = ProductCategoryDaoMem.getInstance();
-        SupplierDao supplierDao = SupplierDaoMem.getInstance();
-        ProductService productService = new ProductService(productDataStore,productCategoryDataStore, supplierDao);
+        ProductService productService = new ProductService();
         PrintWriter out = response.getWriter();
 
         var productsByCategory = getProductsByFilter(request.getParameter("filter"), Integer.parseInt(request.getParameter("id")), productService);
