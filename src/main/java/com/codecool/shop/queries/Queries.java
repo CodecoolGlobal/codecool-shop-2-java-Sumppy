@@ -42,7 +42,7 @@ public class Queries {
     }
 
     public static String addSupplier(){
-        return "INSERT INTO suppliers (name, description) VALUES(?, ?, ?)";
+        return "INSERT INTO suppliers (name, description) VALUES(?, ?)";
     }
 
     public static String getAllSuppliers(){

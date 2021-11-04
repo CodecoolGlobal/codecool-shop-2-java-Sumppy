@@ -21,6 +21,8 @@ import java.sql.SQLException;
 @WebListener
 public class Initializer implements ServletContextListener {
 
+    public static final boolean isDatabaseAvailable = true;
+
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         DatabaseManager databaseManager = new DatabaseManager();

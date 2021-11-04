@@ -25,9 +25,8 @@ public class SupplierDaoDb implements SupplierDao {
             String sql = Queries.addSupplier();
             PreparedStatement statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-            statement.setInt(1, supplier.getId());
-            statement.setString(2, supplier.getName());
-            statement.setString(3, supplier.getDescription());
+            statement.setString(1, supplier.getName());
+            statement.setString(2, supplier.getDescription());
             statement.executeUpdate();
 
             ResultSet resultSet = statement.getGeneratedKeys();
