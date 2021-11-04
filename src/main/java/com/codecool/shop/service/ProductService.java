@@ -9,6 +9,7 @@ import com.codecool.shop.model.Product;
 import com.codecool.shop.model.ProductCategory;
 import com.codecool.shop.model.Supplier;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class ProductService{
@@ -16,9 +17,14 @@ public class ProductService{
     private final ProductCategoryDao productCategoryDao;
     private final SupplierDao supplierDao;
 
-    public ProductService() {
+    public ProductService(){
         if(Initializer.isDatabaseAvailable){
             DatabaseManager databaseManager = new DatabaseManager();
+            try {
+                databaseManager.setup();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
             this.productDao = databaseManager.getProductDaoDb();
             this.productCategoryDao = databaseManager.getProductCategoryDaoDb();
             this.supplierDao = databaseManager.getSupplierDaoDb();
